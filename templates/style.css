@@ -1,0 +1,90 @@
+body, html {
+    margin: 0;
+    height:100%
+    width:100%
+}
+
+.header{
+  color: #FFFFFF;
+	background-color: #292929;
+}
+.header:before,
+.header:after {
+  content:"";
+  display:inline-table;
+}
+
+.header:after {
+    clear:both;
+}
+#headerText{
+  margin: 1%;
+}
+.headerList{
+  margin-left: 60%;
+  display: flex;
+  list-style-type: none;
+}
+.headerButton{
+  font:
+  width: 7.5rem;
+  margin: 0 .25em;
+}
+.main{
+  color: #FFFFFF;
+	background-color: #4B0082;
+}
+.odd{
+  margin-left: 0.5%;
+  width: 49%;
+  text-align: left;
+}
+.even{
+  margin-left: 50.5%;
+  width: 49%;
+  text-align: left;
+}
+.projectsLeft{
+  margin-left: 10%;
+  margin-top: 2%;
+  text-align: center;
+  width: 30%;
+  height: 400px;
+  background-color: #292929;
+}
+.projectsRight{
+  margin-left: 60%;
+  margin-top: 2%;
+  text-align: center;
+  width: 30%;
+  height: 400px;
+  background-color: #292929;
+}
+.column {
+  margin-top: 2%;
+  margin-left: 14%;
+  width: 29%;
+  float: left;
+  background-color: #292929;
+}
+.content{
+  display:table-cell;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+body{
+  color: #FFFFFF;
+	background-color: #4B0082;
+}
+a:link{
+	color: #58E817;
+}
+a:visited{
+	color: #58E817;
+}
+ul{
+	display: flex;
+	list-style-type: none;
+}
