@@ -15,6 +15,12 @@ async fn my_projects(tera: web::Data<Tera>) -> impl Responder {
     HttpResponse::Ok().body(rendered)
 }
 
+async fn posts(tera: web::Data<Tera>) -> impl Responder {
+    let data = Context::new();
+    let rendered = tera.render("posts.html", &data).unwrap();
+    HttpResponse::Ok().body(rendered)
+}
+
 #[derive(Debug, Deserialize)]
 struct LoginUser {
     username: String,
@@ -42,6 +48,7 @@ async fn main() -> std::io::Result<()> {
             .route("/my_projects", web::get().to(my_projects))
             .route("/log_in", web::get().to(login))
             .route("/log_in", web::post().to(process_login))
+            .route("/posts", web::get().to(posts))
             .service(Files::new("/", "templates/").index_file("index.html"))
     })
     .bind("127.0.0.1:8000")?
