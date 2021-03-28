@@ -21,6 +21,24 @@ async fn posts(tera: web::Data<Tera>) -> impl Responder {
     HttpResponse::Ok().body(rendered)
 }
 
+async fn movies(tera: web::Data<Tera>) -> impl Responder {
+    let data = Context::new();
+    let rendered = tera.render("movies.html", &data).unwrap();
+    HttpResponse::Ok().body(rendered)
+}
+
+async fn games(tera: web::Data<Tera>) -> impl Responder {
+    let data = Context::new();
+    let rendered = tera.render("games.html", &data).unwrap();
+    HttpResponse::Ok().body(rendered)
+}
+
+async fn general(tera: web::Data<Tera>) -> impl Responder {
+    let data = Context::new();
+    let rendered = tera.render("general_posts.html", &data).unwrap();
+    HttpResponse::Ok().body(rendered)
+}
+
 #[derive(Debug, Deserialize)]
 struct LoginUser {
     username: String,
@@ -49,6 +67,9 @@ async fn main() -> std::io::Result<()> {
             .route("/log_in", web::get().to(login))
             .route("/log_in", web::post().to(process_login))
             .route("/posts", web::get().to(posts))
+            .route("/movies", web::get().to(movies))
+            .route("/games", web::get().to(games))
+            .route("/general_posts", web::get().to(general))
             .service(Files::new("/", "templates/").index_file("index.html"))
     })
     .bind("127.0.0.1:8000")?

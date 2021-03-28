@@ -84,7 +84,3 @@ a:link{
 a:visited{
 	color: #58E817;
 }
-ul{
-	display: flex;
-	list-style-type: none;
-}
